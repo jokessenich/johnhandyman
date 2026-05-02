@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Kessenich — Carpenter &amp; Handyman in Ann Arbor</title>
+<meta name="description" content="Carpentry and handyman services in Ann Arbor. Custom builds, kids' play areas, and everyday repairs. $60/hr through this month, regularly $80/hr. Call or text (240) 355-2620.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf7;
+    --bg-alt: #f1efe8;
+    --forest: #1f3d2b;
+    --forest-deep: #14271c;
+    --ink: #14140f;
+    --pencil: #5f6361;
+    --line: #e1dfd6;
+    --rust: #b85530;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  a { color: inherit; }
+
+  /* ─── Top notice ─── */
+  .notice {
+    background: var(--forest-deep);
+    color: #fff;
+    text-align: center;
+    padding: 11px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+  }
+  .notice strong { font-weight: 700; }
+
+  /* ─── Nav ─── */
+  nav {
+    border-bottom: 1px solid var(--line);
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250,250,247,0.92);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .logo-sub {
+    color: var(--pencil);
+    font-weight: 500;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  .nav-cta {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    background: var(--forest);
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--forest-deep); }
+
+  /* ─── Layout ─── */
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section { padding: 120px 0; }
+
+  @media (max-width: 720px) {
+    section { padding: 80px 0; }
+    nav { padding: 16px 20px; }
+    .container { padding: 0 20px; }
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    padding: 80px 0 0;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 920px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 6vw, 78px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.0;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero h1 .accent {
+    color: var(--forest);
+    font-style: normal;
+  }
+  .hero p.lede {
+    font-size: clamp(17px, 1.4vw, 19px);
+    color: var(--pencil);
+    max-width: 480px;
+    margin-bottom: 40px;
+    line-height: 1.55;
+  }
+
+  .hero-image {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-alt);
+    box-shadow: 0 30px 60px -20px rgba(20,39,28,0.25), 0 14px 28px -14px rgba(20,39,28,0.15);
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+  .hero-image .badge {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    background: rgba(20,20,15,0.85);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+  }
+  .hero-image .badge strong { font-weight: 700; }
+
+  .hero .meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .hero .meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--pencil);
+    font-weight: 600;
+  }
+  .hero .meta-value {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .hero .meta-value .strike {
+    color: var(--pencil);
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-left: 6px;
+    font-size: 14px;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 15px 26px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.18s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--forest);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--forest-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -4px rgba(20,39,28,0.3);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .btn-secondary:hover {
+    border-color: var(--ink);
+    background: rgba(20,20,15,0.03);
+  }
+
+  /* ─── Section labels ─── */
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  h2.section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .section-intro {
+    font-size: 18px;
+    color: var(--pencil);
+    max-width: 600px;
+    margin-bottom: 64px;
+    line-height: 1.6;
+  }
+
+  /* ─── Services ─── */
+  .services { border-top: 1px solid var(--line); }
+  .service-list { border-top: 1px solid var(--line); }
+  .service-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .service-name {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 18px;
+    letter-spacing: -0.005em;
+  }
+  .service-desc {
+    color: var(--pencil);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  @media (max-width: 640px) {
+    .service-row { grid-template-columns: 1fr; gap: 6px; padding: 24px 0; }
+  }
+
+  /* ─── About / Story ─── */
+  .about {
+    background: var(--bg-alt);
+    position: relative;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .about p {
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .about p:last-of-type { margin-bottom: 0; }
+
+  .about-image {
+    aspect-ratio: 3/4;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px -16px rgba(20,39,28,0.25);
+  }
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .signature {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .signature .sig-name {
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .signature .sig-title {
+    font-size: 13px;
+    color: var(--pencil);
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── Play feature section ─── */
+  .play {
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .play-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .play-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .play h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .play h2 .accent { color: var(--forest); }
+  .play p {
+    color: var(--pencil);
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .play p:last-of-type { margin-bottom: 28px; }
+  .play .play-features {
+    list-style: none;
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+  }
+  .play .play-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    font-size: 15px;
+  }
+  .play .play-features li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rust);
+    flex-shrink: 0;
+    transform: translateY(-2px);
+  }
+  .play .play-features li strong {
+    color: var(--ink);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .play .play-features li span {
+    color: var(--pencil);
+  }
+  .play-visual {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #f1efe8 0%, #e1dfd6 100%);
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 24px 48px -16px rgba(20,39,28,0.15);
+  }
+  .play-visual-inner {
+    text-align: center;
+    padding: 40px;
+    max-width: 360px;
+  }
+  .play-visual-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    color: var(--forest);
+  }
+  .play-visual-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .play-visual h3 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .play-visual p {
+    font-size: 14px;
+    color: var(--pencil);
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 800px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+  .step {
+    padding: 40px 36px 40px 0;
+    border-right: 1px solid var(--line);
+  }
+  .step:last-child { border-right: none; padding-right: 0; }
+  @media (max-width: 800px) {
+    .step { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 0; }
+    .step:last-child { border-bottom: none; }
+  }
+  .step-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    color: var(--forest);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+  .step h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .step p {
+    color: var(--pencil);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  /* ─── Contact ─── */
+  .contact {
+    background: var(--forest);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact h2 {
+    color: #fff;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 22px;
+    max-width: 720px;
+  }
+  .contact p {
+    color: rgba(255,255,255,0.78);
+    font-size: 18px;
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  .contact .ctas .btn-primary {
+    background: #fff;
+    color: var(--forest-deep);
+  }
+  .contact .ctas .btn-primary:hover {
+    background: #f0eee8;
+  }
+  .contact .ctas .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.3);
+  }
+  .contact .ctas .btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.6);
+  }
+  .contact .section-label { color: rgba(255,255,255,0.6); }
+
+  /* ─── Footer ─── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+    color: var(--pencil);
+    font-size: 14px;
+  }
+  footer .foot-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+</style>
+</head>
+<body>
+
+<div class="notice">
+  <strong>$60/hr through this month</strong> &nbsp;·&nbsp; regularly $80/hr
+</div>
+
+<nav>
+  <div class="logo">John Kessenich<span class="logo-sub">Carpenter &amp; Handyman, Ann Arbor</span></div>
+  <a href="tel:+12403552620" class="nav-cta">(240) 355-2620</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <h1>Carpentry &amp; handyman work,<br><span class="accent">done well.</span></h1>
+        <p class="lede">
+          Custom builds, kids' play areas, kitchens, bathrooms, and the everyday list — doors, floors, faucets, mounts. I show up on time, do the work right, and leave the place clean.
+        </p>
+
+        <div class="meta">
+          <div class="meta-item">
+            <span class="meta-label">Rate</span>
+            <span class="meta-value">$60/hr <span class="strike">$80/hr</span></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Service area</span>
+            <span class="meta-value">Ann Arbor &amp; nearby</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Response</span>
+            <span class="meta-value">Same-day text</span>
+          </div>
+        </div>
+
+        <div class="ctas">
+          <a href="tel:+12403552620" class="btn btn-primary">Call (240) 355-2620</a>
+          <a href="sms:+12403552620" class="btn btn-secondary">Send a text</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/tiny-home-build.jpg" alt="John on the roof of a tiny home he built from the ground up">
+        <div class="badge"><strong>Tiny home build</strong> · framing &amp; roofing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="services">
+  <div class="container">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What I work on.</h2>
+    <p class="section-intro">A short list of the regulars. If your project isn't here, ask anyway — odds are I've done it.</p>
+
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-name">Kids' play areas</div>
+        <div class="service-desc">Playhouses, climbing structures, swing sets, sandboxes. Built solid, built to grow with them.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Custom carpentry</div>
+        <div class="service-desc">Built-ins, shelving, benches, mantels — things you can't just buy off the shelf.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Bathroom remodels</div>
+        <div class="service-desc">Vanities, tile, fixtures, lighting. Full refresh or one piece at a time.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Kitchen remodels</div>
+        <div class="service-desc">Cabinets, countertops, backsplash, hardware. Bring it up to date without starting over.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Doors</div>
+        <div class="service-desc">Hanging, replacing, fixing the one that won't latch — interior or exterior.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Flooring</div>
+        <div class="service-desc">Laminate, vinyl plank, tile patches. Trim and transitions done clean.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Sinks &amp; toilets</div>
+        <div class="service-desc">Swaps, replacements, leaky faucets — without the plumber's bill.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">TV mounting</div>
+        <div class="service-desc">Studs found, level set, cables hidden. Looks like it came with the house.</div>
+      </div>
+      <div class="service-row">
+        <div class="service-name">Small repairs</div>
+        <div class="service-desc">Squeaky hinges, sticky drawers, drywall holes, loose railings, and the rest.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">About</div>
+        <h2 class="section-title">Hi, I'm John.</h2>
+        <p>Before I started taking on handyman work in Ann Arbor, I built a tiny home from the ground up — framing, roofing, the whole thing — and fabricated a custom trailer along the way. Projects like that teach you to slow down, measure twice, and finish what you start.</p>
+        <p>So when someone calls about a sticky door or a wobbly toilet, it's a quick visit, not a project. No upsells, no jargon, no surprises on the invoice. Just the work, done right.</p>
+
+        <div class="signature">
+          <span class="sig-name">— John</span>
+          <span class="sig-title">Kessenich, Ann Arbor</span>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="images/rafters.jpg" alt="Rafters of the tiny home, sun streaming through">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── KIDS PLAY AREAS ─── -->
+<section class="play">
+  <div class="container">
+    <div class="play-grid">
+      <div>
+        <div class="section-label">Specialty</div>
+        <h2>Kids' play areas, <span class="accent">built to last.</span></h2>
+        <p>Most playhouses and swing sets you can buy come from a box, get assembled in an afternoon, and start wobbling within a year. I build them the way a carpenter would — with real lumber, real joinery, and real attention to how kids actually use them.</p>
+        <p>Whether it's a simple sandbox, a backyard playhouse, or a multi-level climbing setup, I'll work with you on the design and build it to handle a decade of weather, growing kids, and the neighborhood pile-on.</p>
+
+        <ul class="play-features">
+          <li><strong>Playhouses</strong> <span>· custom sized to your yard</span></li>
+          <li><strong>Climbing structures</strong> <span>· solid lumber, no kit lumber</span></li>
+          <li><strong>Swing sets &amp; sandboxes</strong> <span>· built in place</span></li>
+          <li><strong>Custom design</strong> <span>· bring a sketch or just an idea</span></li>
+        </ul>
+      </div>
+
+      <div class="play-visual">
+        <div class="play-visual-inner">
+          <svg class="play-visual-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 32 L32 12 L56 32"/>
+            <path d="M14 28 L14 54 L50 54 L50 28"/>
+            <rect x="26" y="38" width="12" height="16"/>
+            <path d="M22 28 L42 28"/>
+          </svg>
+          <div class="play-visual-label">Currently building</div>
+          <h3>My own backyard treehouse</h3>
+          <p>Photos coming this summer. If you're thinking about a project for your kids, let's talk now and plan it for spring or summer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="how">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Simple from start to finish.</h2>
+    <p class="section-intro">No quote forms. No drawn-out scheduling. Three steps and we're moving.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Call or text</h3>
+        <p>Tell me what's going on. A photo helps if you've got one.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Pick a time</h3>
+        <p>I'll give you a window that works, usually within a few days.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Job done</h3>
+        <p>Pay by the hour at $60/hr this month. Cash, Venmo, or Zelle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Get started</div>
+    <h2>Got a list? Let's get to it.</h2>
+    <p>Call or text and tell me what you've got. I'll let you know when I can swing by.</p>
+    <div class="ctas">
+      <a href="tel:+12403552620" class="btn btn-primary">Call (240) 355-2620</a>
+      <a href="sms:+12403552620" class="btn btn-secondary">Send a text</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container foot-grid">
+    <div>© <span id="yr"></span> John Kessenich · Carpenter &amp; Handyman · Ann Arbor, MI</div>
+    <div>
+      <a href="tel:+12403552620">(240) 355-2620</a> ·
+      <a href="mailto:johnny.kessenich@gmail.com">johnny.kessenich@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
