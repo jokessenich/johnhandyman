@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>John Kessenich — Carpenter &amp; Handyman in Ann Arbor</title>
-<meta name="description" content="Carpentry and handyman services in Ann Arbor. Custom builds, kids' play areas, and everyday repairs. $60/hr through this month, regularly $80/hr. Call or text (240) 355-2620.">
+<meta name="description" content="Carpentry and handyman services in Ann Arbor. Custom builds, indoor kids' play areas, and everyday repairs. $60/hr through this month, regularly $80/hr. Call or text (240) 355-2620.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500&display=swap" rel="stylesheet">
@@ -337,6 +337,54 @@
     letter-spacing: 0.02em;
   }
 
+  /* ─── Recent projects ─── */
+  .recent {
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .recent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  @media (max-width: 800px) {
+    .recent-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .recent-grid { grid-template-columns: 1fr; }
+  }
+  .recent-item {
+    background: var(--bg-alt);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.2s;
+  }
+  .recent-item:hover { background: #ebe9e0; }
+  .recent-item .recent-num {
+    font-size: 12px;
+    color: var(--rust);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .recent-item h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .recent-item p {
+    font-size: 14px;
+    color: var(--pencil);
+    line-height: 1.5;
+  }
+
   /* ─── Play feature section ─── */
   .play {
     border-top: 1px solid var(--line);
@@ -559,7 +607,7 @@
       <div>
         <h1>Carpentry &amp; handyman work,<br><span class="accent">done well.</span></h1>
         <p class="lede">
-          Custom builds, kids' play areas, kitchens, bathrooms, and the everyday list — doors, floors, faucets, mounts. I show up on time, do the work right, and leave the place clean.
+          Custom builds, indoor kids' play areas, kitchens, bathrooms, and the everyday list — doors, floors, faucets, mounts. I show up on time, do the work right, and leave the place clean.
         </p>
 
         <div class="meta">
@@ -584,7 +632,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="images/rafters.jpg" alt="John on the roof of a tiny home he built from the ground up">
+        <img src="images/tiny-home-build.jpg" alt="John on the roof of a tiny home he built from the ground up">
         <div class="badge"><strong>Tiny home build</strong> · framing &amp; roofing</div>
       </div>
     </div>
@@ -600,8 +648,8 @@
 
     <div class="service-list">
       <div class="service-row">
-        <div class="service-name">Kids' play areas</div>
-        <div class="service-desc">Playhouses, climbing structures, swing sets, sandboxes. Built solid, built to grow with them.</div>
+        <div class="service-name">Indoor kids' play areas</div>
+        <div class="service-desc">Climbing walls, monkey bars, rope nets — turn a basement or bonus room into the favorite spot in the house.</div>
       </div>
       <div class="service-row">
         <div class="service-name">Custom carpentry</div>
@@ -639,6 +687,48 @@
   </div>
 </section>
 
+<!-- ─── RECENT PROJECTS ─── -->
+<section class="recent">
+  <div class="container">
+    <div class="section-label">Recent projects</div>
+    <h2 class="section-title">A look at what I've been building.</h2>
+    <p class="section-intro">A mix of custom carpentry and everyday work from the last few months.</p>
+
+    <div class="recent-grid">
+      <div class="recent-item">
+        <span class="recent-num">01</span>
+        <h3>Breakfast nook</h3>
+        <p>Custom-built bench seating and framing for a corner kitchen nook.</p>
+      </div>
+      <div class="recent-item">
+        <span class="recent-num">02</span>
+        <h3>Custom art frames</h3>
+        <p>Hand-built wooden frames sized to fit specific pieces.</p>
+      </div>
+      <div class="recent-item">
+        <span class="recent-num">03</span>
+        <h3>Indoor play area</h3>
+        <p>Basement build with a climbing wall, monkey bars, and a rope net ladder.</p>
+      </div>
+      <div class="recent-item">
+        <span class="recent-num">04</span>
+        <h3>Bathroom vanity</h3>
+        <p>Vanity install with new fixtures and clean finish work.</p>
+      </div>
+      <div class="recent-item">
+        <span class="recent-num">05</span>
+        <h3>Toilet replacement</h3>
+        <p>Removed the old, set the new — sealed and solid, no leaks.</p>
+      </div>
+      <div class="recent-item">
+        <span class="recent-num">06</span>
+        <h3>Sink replacement</h3>
+        <p>Pulled and replaced a kitchen sink, including supply lines and trap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── ABOUT ─── -->
 <section class="about">
   <div class="container">
@@ -656,7 +746,7 @@
       </div>
 
       <div class="about-image">
-        <img src="images/tiny-home-build.jpg" alt="Rafters of the tiny home, sun streaming through">
+        <img src="images/rafters.jpg" alt="Rafters of the tiny home, sun streaming through">
       </div>
     </div>
   </div>
@@ -668,14 +758,14 @@
     <div class="play-grid">
       <div>
         <div class="section-label">Specialty</div>
-        <h2>Kids' play areas, <span class="accent">built to last.</span></h2>
-        <p>Most playhouses and swing sets you can buy come from a box, get assembled in an afternoon, and start wobbling within a year. I build them the way a carpenter would — with real lumber, real joinery, and real attention to how kids actually use them.</p>
-        <p>Whether it's a simple sandbox, a backyard playhouse, or a multi-level climbing setup, I'll work with you on the design and build it to handle a decade of weather, growing kids, and the neighborhood pile-on.</p>
+        <h2>Indoor play areas, <span class="accent">built into your home.</span></h2>
+        <p>Basements, bonus rooms, finished attics — most of these spaces sit underused for years. With the right build, they become the spot the kids want to be every day, rain or snow.</p>
+        <p>I designed and built one in my own home: a climbing wall, monkey bars, and a rope net ladder. Solid lumber, rated hardware, anchored properly into framing — not the kind of thing that comes loose in six months. Whatever the space and however the kids like to move, I'll work with you on the design and build it to handle real, daily use.</p>
 
         <ul class="play-features">
-          <li><strong>Playhouses</strong> <span>· custom sized to your yard</span></li>
-          <li><strong>Climbing structures</strong> <span>· solid lumber, no kit lumber</span></li>
-          <li><strong>Swing sets &amp; sandboxes</strong> <span>· built in place</span></li>
+          <li><strong>Climbing walls</strong> <span>· custom holds and routes</span></li>
+          <li><strong>Monkey bars &amp; rope nets</strong> <span>· anchored into real framing</span></li>
+          <li><strong>Ninja-style courses</strong> <span>· fits the room you have</span></li>
           <li><strong>Custom design</strong> <span>· bring a sketch or just an idea</span></li>
         </ul>
       </div>
@@ -683,14 +773,19 @@
       <div class="play-visual">
         <div class="play-visual-inner">
           <svg class="play-visual-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 32 L32 12 L56 32"/>
-            <path d="M14 28 L14 54 L50 54 L50 28"/>
-            <rect x="26" y="38" width="12" height="16"/>
-            <path d="M22 28 L42 28"/>
+            <rect x="8" y="8" width="48" height="48" rx="2"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+            <circle cx="32" cy="16" r="2.5" fill="currentColor"/>
+            <circle cx="44" cy="24" r="2.5" fill="currentColor"/>
+            <circle cx="22" cy="32" r="2.5" fill="currentColor"/>
+            <circle cx="36" cy="36" r="2.5" fill="currentColor"/>
+            <circle cx="46" cy="44" r="2.5" fill="currentColor"/>
+            <circle cx="18" cy="46" r="2.5" fill="currentColor"/>
+            <circle cx="30" cy="48" r="2.5" fill="currentColor"/>
           </svg>
-          <div class="play-visual-label">Currently building</div>
-          <h3>My own backyard treehouse</h3>
-          <p>Photos coming this summer. If you're thinking about a project for your kids, let's talk now and plan it for spring or summer.</p>
+          <div class="play-visual-label">Built in my own home</div>
+          <h3>Climbing wall, monkey bars &amp; rope ladder</h3>
+          <p>Photos coming soon. If you've got a basement or bonus room that could use a transformation, let's talk.</p>
         </div>
       </div>
     </div>
