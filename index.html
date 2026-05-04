@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>John Kessenich — Carpenter &amp; Handyman in Ann Arbor</title>
-<meta name="description" content="Carpentry and handyman services in Ann Arbor. Custom builds, indoor kids' play areas, and everyday repairs. $60/hr through this month, regularly $80/hr. Call or text (240) 355-2620.">
+<meta name="description" content="Carpentry and handyman services in Ann Arbor. Custom builds, indoor kids' play areas, and everyday repairs. $60/hr through this month, regularly $80/hr. Call or text for a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500&display=swap" rel="stylesheet">
@@ -597,7 +597,7 @@
 
 <nav>
   <div class="logo">John Kessenich<span class="logo-sub">Carpenter &amp; Handyman, Ann Arbor</span></div>
-  <a href="tel:+12403552620" class="nav-cta">(240) 355-2620</a>
+  <a href="#" class="nav-cta phone-link">Call or text</a>
 </nav>
 
 <!-- ─── HERO ─── -->
@@ -626,8 +626,8 @@
         </div>
 
         <div class="ctas">
-          <a href="tel:+12403552620" class="btn btn-primary">Call (240) 355-2620</a>
-          <a href="sms:+12403552620" class="btn btn-secondary">Send a text</a>
+          <a href="#" class="btn btn-primary phone-link">Call <span class="phone-display"></span></a>
+          <a href="#" class="btn btn-secondary sms-link">Send a text</a>
         </div>
       </div>
 
@@ -826,8 +826,8 @@
     <h2>Got a list? Let's get to it.</h2>
     <p>Call or text and tell me what you've got. I'll let you know when I can swing by.</p>
     <div class="ctas">
-      <a href="tel:+12403552620" class="btn btn-primary">Call (240) 355-2620</a>
-      <a href="sms:+12403552620" class="btn btn-secondary">Send a text</a>
+      <a href="#" class="btn btn-primary phone-link">Call <span class="phone-display"></span></a>
+      <a href="#" class="btn btn-secondary sms-link">Send a text</a>
     </div>
   </div>
 </section>
@@ -837,7 +837,7 @@
   <div class="container foot-grid">
     <div>© <span id="yr"></span> John Kessenich · Carpenter &amp; Handyman · Ann Arbor, MI</div>
     <div>
-      <a href="tel:+12403552620">(240) 355-2620</a> ·
+      <a href="#" class="phone-link"><span class="phone-display">Call or text</span></a> ·
       <a href="mailto:johnny.kessenich@gmail.com">johnny.kessenich@gmail.com</a>
     </div>
   </div>
@@ -845,6 +845,27 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Phone number assembled at runtime to keep it out of the raw HTML.
+  // Number is split into parts so simple page-source crawlers don't see it.
+  (function() {
+    var p1 = '734';
+    var p2 = '249';
+    var p3 = '8126';
+    var formatted = '(' + p1 + ') ' + p2 + '-' + p3;
+    var telHref = 'tel:+1' + p1 + p2 + p3;
+    var smsHref = 'sms:+1' + p1 + p2 + p3;
+
+    // Wire up call/text buttons after page load
+    document.querySelectorAll('.phone-link').forEach(function(el) {
+      el.setAttribute('href', telHref);
+      var display = el.querySelector('.phone-display');
+      if (display) display.textContent = formatted;
+    });
+    document.querySelectorAll('.sms-link').forEach(function(el) {
+      el.setAttribute('href', smsHref);
+    });
+  })();
 </script>
 
 </body>
