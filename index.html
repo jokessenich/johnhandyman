@@ -386,6 +386,58 @@
     line-height: 1.5;
   }
 
+  /* ─── Before & after ─── */
+  .ba {
+    border-top: 1px solid var(--line);
+    background: var(--bg-alt);
+  }
+  .ba-list { display: grid; gap: 56px; }
+  .ba-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .ba-pair figure { position: relative; margin: 0; }
+  .ba-pair img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    background: var(--line);
+  }
+  .ba-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(20,20,15,0.78);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 9px;
+    border-radius: 4px;
+  }
+  .ba-pair figure.after .ba-tag { background: var(--forest); }
+  .ba-caption {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    margin-top: 6px;
+  }
+  .ba-caption h3 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .ba-caption p { font-size: 14px; color: var(--pencil); line-height: 1.5; }
+  @media (max-width: 640px) {
+    .ba-pair { grid-template-columns: 1fr; }
+    .ba-caption { flex-direction: column; gap: 4px; }
+  }
+
   /* ─── Play feature section ─── */
   .play {
     border-top: 1px solid var(--line);
@@ -725,6 +777,33 @@
         <span class="recent-num">06</span>
         <h3>Sink replacement</h3>
         <p>Pulled and replaced a kitchen sink, including supply lines and trap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BEFORE & AFTER ─── -->
+<section class="ba">
+  <div class="container">
+    <div class="section-label">Before &amp; after</div>
+    <h2 class="section-title">Same rooms, finished right.</h2>
+    <p class="section-intro">A few recent jobs, from the first look to the last nail.</p>
+
+    <div class="ba-list">
+      <div class="ba-pair">
+        <figure><img src="images/wall-opening-before.jpg" alt="Living room wall with the planned opening marked out in tape" loading="lazy"><span class="ba-tag">Before</span></figure>
+        <figure class="after"><img src="images/wall-opening-after.jpg" alt="Finished cased opening with a half wall between the living room and entry" loading="lazy"><span class="ba-tag">After</span></figure>
+        <div class="ba-caption"><h3>Interior wall opening</h3><p>Opened up a solid living room wall into a cased pass-through with a half wall.</p></div>
+      </div>
+      <div class="ba-pair">
+        <figure><img src="images/cabin-ceiling-before.jpg" alt="Cabin room with exposed joists and foil insulation overhead" loading="lazy"><span class="ba-tag">Before</span></figure>
+        <figure class="after"><img src="images/cabin-ceiling-after.jpg" alt="Same cabin with a new tongue-and-groove pine ceiling" loading="lazy"><span class="ba-tag">After</span></figure>
+        <div class="ba-caption"><h3>Cabin ceiling</h3><p>Replaced exposed joists and foil insulation with a tongue-and-groove pine ceiling.</p></div>
+      </div>
+      <div class="ba-pair">
+        <figure><img src="images/chicken-run-before.jpg" alt="Open timber frame next to a red outbuilding" loading="lazy"><span class="ba-tag">Before</span></figure>
+        <figure class="after"><img src="images/chicken-run-after.jpg" alt="Finished run with a metal roof, screened walls, and a custom door" loading="lazy"><span class="ba-tag">After</span></figure>
+        <div class="ba-caption"><h3>Covered chicken run</h3><p>Took an open timber frame to a metal-roofed, screened run with a custom door.</p></div>
       </div>
     </div>
   </div>
